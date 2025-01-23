@@ -8,6 +8,10 @@ class ItemModel {
   static async create(item) {
     return this.collection().insertOne(item);
   }
+
+  static async getAll() {
+    return this.collection().find().toArray();
+  }
 }
 
 export default ItemModel;

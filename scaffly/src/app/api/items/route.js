@@ -11,3 +11,8 @@ export async function POST(req) {
 
   return Response.json({ message: "Item created" });
 }
+
+export async function GET(req) {
+  const items = await ItemModel.getAll();
+  return Response.json(items);
+}
