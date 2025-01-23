@@ -12,6 +12,10 @@ class ItemModel {
   static async getAll() {
     return this.collection().find().toArray();
   }
+
+  static async update(kode, updatedItem) {
+    return this.collection().updateOne({ kode }, { $set: updatedItem });
+  }
 }
 
 export default ItemModel;
