@@ -16,6 +16,14 @@ class ItemModel {
   static async update(kode, updatedItem) {
     return this.collection().updateOne({ kode }, { $set: updatedItem });
   }
+
+  static async get(kode) {
+    return this.collection().findOne({ kode });
+  }
+
+  static async delete(kode) {
+    return this.collection().deleteOne({ kode });
+  }
 }
 
 export default ItemModel;
