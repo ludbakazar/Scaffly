@@ -24,6 +24,14 @@ class ItemModel {
   static async delete(kode) {
     return this.collection().deleteOne({ kode });
   }
+
+  static async findById(id) {
+    return this.collection().findOne(id);
+  }
+
+  static async updateStock(id, qty) {
+    return this.collection().updateOne({ _id: id }, { $inc: { stock: -qty } });
+  }
 }
 
 export default ItemModel;
