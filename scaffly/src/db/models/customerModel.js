@@ -1,3 +1,5 @@
+import { ObjectId } from "mongodb";
+
 const { database } = require("../config/config");
 
 class CustomerModel {
@@ -11,6 +13,10 @@ class CustomerModel {
 
   static async findAll() {
     return await this.collection().find().toArray();
+  }
+
+  static async findById(id) {
+    return await this.collection().findOne({ _id: new ObjectId(id) });
   }
 }
 
