@@ -18,6 +18,17 @@ class CustomerModel {
   static async findById(id) {
     return await this.collection().findOne({ _id: new ObjectId(id) });
   }
+
+  static async update(id, newCustomer) {
+    return await this.collection().updateOne(
+      { _id: new ObjectId(id) },
+      { $set: newCustomer }
+    );
+  }
+
+  static async delete(id) {
+    return await this.collection().deleteOne({ _id: new ObjectId(id) });
+  }
 }
 
 export default CustomerModel;
