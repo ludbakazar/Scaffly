@@ -8,6 +8,10 @@ class CustomerModel {
   static async create(customer) {
     return await this.collection().insertOne(customer);
   }
+
+  static async findAll() {
+    return await this.collection().find().toArray();
+  }
 }
 
 export default CustomerModel;
