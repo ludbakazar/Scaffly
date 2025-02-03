@@ -29,8 +29,12 @@ class ItemModel {
     return this.collection().findOne(id);
   }
 
-  static async updateStock(id, qty) {
+  static async minStock(id, qty) {
     return this.collection().updateOne({ _id: id }, { $inc: { stock: -qty } });
+  }
+
+  static async plusStock(id, qty) {
+    return this.collection().updateOne({ _id: id }, { $inc: { stock: qty } });
   }
 }
 
